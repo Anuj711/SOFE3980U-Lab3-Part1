@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binarycalculatorwebapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: binarycalculatorwebapp
+  template:
+    metadata:
+      labels:
+        app: binarycalculatorwebapp
+    spec:
+      containers:
+      - image: northamerica-northeast2-docker.pkg.dev/iconic-baton-451506-a0/sofe3980u/binarycalculatorwebapp
+        name: binarycalculatorwebapp
+        ports:
+        - containerPort: 8080
